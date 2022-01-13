@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Task {\n  constructor(id, title, description, done, deadline) {\n    this.id = id;\n    this.title = title;\n    this.description = description;\n    this.done = done;\n    this.deadline = deadline;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

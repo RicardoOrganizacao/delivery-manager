@@ -1,0 +1,67 @@
+<div class="container">
+  <h1 class="page-header">Faça o seu cadastro</h1>
+
+  <div class="jumbotron">
+
+    <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="signUpUser()" >
+
+      <!-- email -->
+      <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassErrorOrSuccess('email')" >
+        <label for="email" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="email" formControlName="email" >
+          <span class="glyphicon  form-control-feedback"  
+            [ngClass]="formUtils.iconClassErrorOrSuccess('email')" >
+          </span>
+          <div *ngIf="formUtils.showFieldError(formUtils.msg.email)" class="text-danger">
+            <div *ngIf="formUtils.msg.email.errors?.required">O email é obrigatório</div>
+            <div *ngIf="formUtils.msg.email.errors?.email">O email digitado é inválido</div>          
+          </div>
+        </div>
+      </div>
+
+      <!-- senha -->
+      <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassErrorOrSuccess('password')" >
+        <label for="password" class="col-sm-4 control-label">Senha</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" id="password" formControlName="password" >
+          <span class="glyphicon  form-control-feedback"  
+            [ngClass]="formUtils.iconClassErrorOrSuccess('password')" >
+          </span>
+          <div *ngIf="formUtils.showFieldError(formUtils.msg.password)" class="text-danger">
+            <div *ngIf="formUtils.msg.password.errors?.required">A senha é obrigatório</div>
+            <div *ngIf="formUtils.msg.password.errors?.minlength">A senha deve ter no mínimo 8 caracteres</div>          
+          </div>
+        </div>
+      </div>
+
+      <!-- confirmacao de senha-->
+      <div class="form-group  has-feedback" [ngClass]="formUtils.fieldClassErrorOrSuccess('password_confirmation')" >
+        <label for="password_confirmation" class="col-sm-4 control-label">Confirmação de senha</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" id="password_confirmation" formControlName="password_confirmation" >
+          <span class="glyphicon  form-control-feedback"  
+            [ngClass]="formUtils.iconClassErrorOrSuccess('password_confirmation')" >
+          </span>
+          <div *ngIf="formUtils.showFieldError(formUtils.msg.password_confirmation)" class="text-danger">
+            <div *ngIf="formUtils.msg.password_confirmation.errors?.required">A confirmação de senha é obrigatório</div>
+            <div *ngIf="formUtils.msg.password_confirmation.errors?.mismatch">A senha e a confirmação não combinam</div>         
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Criar conta</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          Se você já possui uma conta, 
+          <a routerLink='/sign-in'> Clique aqui</a>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

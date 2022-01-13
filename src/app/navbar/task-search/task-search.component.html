@@ -1,0 +1,12 @@
+<div style="position: relative;">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Busca de tarefas"
+      #searchInput (keyup)="search(searchInput.value)">
+  </div>
+
+  <div class="list-group search" *ngIf="tasks">
+    <a class="list-group-item cursor" (click)=goToTask(task) *ngFor="let task of tasks">
+      {{ task.title }}
+    </a>
+  </div>
+</div>

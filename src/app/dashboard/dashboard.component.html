@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="page-header">Painel de controle</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tarefa</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>
+          <a class="btn btn-info" [routerLink]="['/tasks', task.id]">Detalhes</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
